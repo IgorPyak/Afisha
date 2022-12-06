@@ -31,4 +31,34 @@ public class ManagerForAfishaTest {
 
 
     }
+
+    @Test
+    public void testLastLess() {
+        ManagerForAfisha afisha = new ManagerForAfisha(5);
+        afisha.addMovie("movie1");
+        afisha.addMovie("movie2");
+        afisha.addMovie("movie3");
+        afisha.addMovie("movie4");
+
+        String[] expected = {"movie4", "movie3", "movie2", "movie1"};
+        String[] actual = afisha.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testLastMore() {
+        ManagerForAfisha afisha = new ManagerForAfisha(5);
+        afisha.addMovie("movie1");
+        afisha.addMovie("movie2");
+        afisha.addMovie("movie3");
+        afisha.addMovie("movie4");
+        afisha.addMovie("movie5");
+        afisha.addMovie("movie6");
+
+        String[] expected = {"movie6", "movie5", "movie4", "movie3", "movie2"};
+        String[] actual = afisha.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 }
